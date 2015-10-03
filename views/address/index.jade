@@ -1,16 +1,44 @@
 extends ../layout
 
-block body
-	nav.navbar.navbar-inverse
-		.container-fluid
-		.navbar-header
-			a(class="navbar-brand", href="/").
-				Address Book
-		.nav.navbar-nav(style="float:right;margin-right:20px;padding-top:5px;")
-			a(href="/logout").btn.btn-warning.
-				logout
+body
+	block body
+		nav.navbar.navbar-inverse
+			.container-fluid
+				.navbar-header
+					a(class="navbar-brand", href="/").
+						Address Book
+				.nav.navbar-nav(style="float:right;margin-right:20px;padding-top:5px;")
+					a(href="/logout").btn.btn-warning.
+						logout
 
-	.container
-		h2.text-center Your Addresses
+		.container
+			.col-md-8.col-md-offset-2
+				h2.text-center Your Contacts
+				if addresses.length > 0
+					table.table.bordered-table.table-striped
+						thead
+							tr
+								th Name
+								th Email
+								th Address
+								th City
+								th Options
+						tbody
+							for address in addresses
+								tr
+									th= address.name
+									th= address.email
+									th= address.address
+									th= address.city
+									th
+										a(href="/",style="padding:5px;")
+											i.fa.fa-edit.fa-lg
+										a(href="/",style="padding:5px;")
+											i.fa.fa-trash-o.fa-lg
+				else
+					p.text-center You don't have any contacts yet!
+				a(href="/address/new").btn.btn-success.pull-right Add Contact
+
+
 		
 
