@@ -7,8 +7,16 @@ body
         .navbar-header
           a(class="navbar-brand", href="/").
             Address Book
-    form(role="form", action="/auth/local", method="post")
-      input(type="text", name="identifier", placeholder="Username or Email")
-      input(type="password", name="password", placeholder="Password")
-      button(type="submit", class="btn btn-primary").
-        Login
+    .container
+      .col-md-6.col-md-offset-3
+        form(role="form", action="/auth/local", method="post")
+          .form-group
+            label Username
+            input(type="text", name="identifier", placeholder="Username").form-control
+          .form-group
+            label Password
+            input(type="password", name="password", placeholder="Password").form-control
+          .form-group
+            button(type="submit", class="btn btn-primary center-block").
+              Login
+        p.text-center Don't have an account? Register #[a(href="/register") here]

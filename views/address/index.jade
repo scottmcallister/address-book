@@ -1,0 +1,16 @@
+extends ../layout
+
+block body
+	nav.navbar.navbar-inverse
+		.container-fluid
+		.navbar-header
+			a(class="navbar-brand", href="/").
+				Address Book
+		.nav.navbar-nav(style="float:right;margin-right:20px;padding-top:5px;")
+			a(href="/logout").btn.btn-warning.
+				logout
+
+	.container
+		h2.text-center Your Addresses
+		
+
