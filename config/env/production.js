@@ -32,7 +32,7 @@ module.exports = {
   },
   models: {
     connection: 'mongolab'
-  }
+  },
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
