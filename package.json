@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "assert": "^1.3.0",
     "bcryptjs": "^2.3.0",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
@@ -34,11 +35,13 @@
     "sails-disk": "~0.10.0",
     "sails-generate-auth": "^0.3.1",
     "sails-mongo": "^0.11.4",
+    "supertest": "^1.1.0",
     "validator": "^4.0.6"
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "mocha test/bootstrap.test.js test/unit/**/*.test.js -R nyan"
   },
   "main": "app.js",
   "repository": {
@@ -46,5 +49,11 @@
     "url": "git://github.com/scott/address-book.git"
   },
   "author": "scott",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "assert": "^1.3.0",
+    "grunt-mocha-test": "^0.12.7",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.1"
+  }
 }

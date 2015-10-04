@@ -37,6 +37,16 @@ module.exports.routes = {
     action: 'index'
   },
 
+  '/address/remove':{
+    controller: 'address',
+    action: 'remove'
+  },
+
+  '/address/change':{
+    controller: 'address',
+    action: 'change'
+  },
+
   'get /login': 'AuthController.login',
   'get /logout': 'AuthController.logout',
   'get /register': 'AuthController.register',

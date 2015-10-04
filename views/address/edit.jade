@@ -1,0 +1,55 @@
+extends ../layout
+
+body
+	block body
+		nav.navbar.navbar-inverse
+			.container-fluid
+				.navbar-header
+					a(class="navbar-brand", href="/").
+						Address Book
+				.nav.navbar-nav(style="float:right;margin-right:20px;padding-top:5px;")
+					a(href="/logout").btn.btn-warning.
+						logout
+		.container
+			.col-md-6.col-md-offset-3
+				h2.center-block Edit Contact
+				form(role="form", action="/address/update", method="post")#contact-form
+						input(type="hidden", name="id", value=contact.id)
+						.form-group
+							label Name
+							input(type="text", name="name", value=contact.name).form-control=contact.name
+						.form-group
+							label Email
+							input(type="text", name="email", value=contact.email).form-control
+						.form-group
+							label Address
+							input(type="text", name="address", value=contact.address).form-control
+						.form-group
+							label City
+							input(type="text", name="city", value=contact.city).form-control
+						.form-group
+							button(type="submit", class="btn btn-primary center-block").
+								Save
+		script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js")
+		script.
+			//form validation rules
+			$("#contact-form").validate({
+				rules: {
+					name: "required",
+					email: {
+						required: true,
+						email: true
+					},
+					address: "required",
+					city: "required"
+				},
+				messages: {
+					name: "Please enter a name",
+					email: "Please enter a valid email address",
+					address: "Please enter an address",
+					city: "Please enter a city"
+				},
+				submitHandler: function(form) {
+				form.submit();
+				}
+			});
